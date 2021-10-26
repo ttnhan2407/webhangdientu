@@ -15,7 +15,7 @@
 		//them
 		
 		 $sql="insert into products (product_title,product_price,product_cat,product_brand,product_desc,product_image,product_keywords) values('$product_title','$product_price','$product_cat','$product_brand','$product_desc','$product_image','$product_keyword')";
-		mysqli_query($sql) or die('ko the insert');
+		pg_query($sql) or die('ko the insert');
 		header('location:../../index.php?quanly=sanpham&ac=them');
 	}elseif(isset($_POST['sua'])){
 		//sua
@@ -24,12 +24,12 @@
 		}else{
 		$sql="update products set product_title ='$product_title',product_price='$product_price',product_cat='$product_cat',product_brand='$product_brand',product_desc='$product_desc',product_keywords='$product_keyword' where product_id='$id'";
 		}
-		mysqli_query($sql);
+		pg_query($sql);
 		header('location:../../index.php?quanly=sanpham&ac=sua&id='.$id);
 	}else{
 	//xóa
 	$sql="delete from products where product_id='$id'";
-	mysqli_query($sql);
+	pg_query($sql);
 	header('location:../../index.php?quanly=sanpham&ac=them');
 	}
 ?>

@@ -2,13 +2,13 @@
 <?php
 	
 	$sql="select * from products ";
-	$sanpham=mysqli_query($conn,$sql);
+	$sanpham=pg_query($conn,$sql);
 ?>
 <p class="loai">Tất cả sản phẫm</p>
 <ul>
 
 <?php
-while($row=mysqli_fetch_array($sanpham)){
+while($row=pg_fetch_array($sanpham)){
 ?>
              <li><a href="#">
                 <?php
